@@ -1,11 +1,19 @@
 package br.unitins.model.musica;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class Endereco extends PanacheEntity {
+public class Endereco {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 8)
     private Integer cep;
     private String bairro;
     private String logradouro;
